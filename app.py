@@ -165,24 +165,103 @@ with tab3:
             """, unsafe_allow_html=True)
 
 with tab4:
-    st.markdown("### About TechTitains")
-    st.markdown("""TechTitains is a state-of-the-art Social Media Intelligence Platform powered by advanced NLP technology.
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 32px; border-radius: 12px; margin-bottom: 24px;">
+        <h1 style="color: #ffffff; margin: 0 0 16px 0; font-size: 36px; font-weight: 700;">About TechTitains</h1>
+        <p style="color: #16a34a; margin: 0; font-size: 16px; font-weight: 600; letter-spacing: 0.5px;">Advanced Content Intelligence Platform</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-**Core Capabilities:**
-- 🎯 **Detect Fake News** - Identify misinformation and false claims
-- 📊 **Classify Content** - Categorize posts as Authentic, Suspicious, or Fake News
-- 💬 **Analyze Sentiment** - Understand emotional tone and intent
-- 📈 **Track Analytics** - Monitor trends and patterns
-- 🔍 **Deep Insights** - Get comprehensive analysis reports
-    """)
+    st.markdown("""
+    <div style="background-color: #ffffff; padding: 28px; border-radius: 12px; border-left: 4px solid #16a34a; margin-bottom: 24px;">
+        <p style="color: #1a1a1a; font-size: 15px; line-height: 1.8; margin: 0;">
+        TechTitains is a state-of-the-art <span style="color: #0066cc; font-weight: 600;">Social Media Intelligence Platform</span> powered by advanced 
+        <span style="color: #16a34a; font-weight: 600;">Natural Language Processing</span> and machine learning technology. 
+        Our platform empowers users to detect misinformation, classify content, and gain actionable insights from social media data in real-time.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("<h2 style='color: #1a1a1a; margin-top: 32px; margin-bottom: 20px;'>Core Capabilities</h2>", unsafe_allow_html=True)
+    
+    col1, col2 = st.columns(2, gap="large")
+    
+    with col1:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%); padding: 20px; border-radius: 12px; border-left: 4px solid #16a34a; margin-bottom: 16px;">
+            <h3 style="color: #16a34a; margin: 0 0 8px 0; font-size: 18px;">🎯 Real-time Detection</h3>
+            <p style="color: #1a1a1a; margin: 0; font-size: 14px; line-height: 1.6;">Instantly identify fake news, misinformation, and false claims using advanced ML algorithms</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%); padding: 20px; border-radius: 12px; border-left: 4px solid #16a34a; margin-bottom: 16px;">
+            <h3 style="color: #16a34a; margin: 0 0 8px 0; font-size: 18px;">📊 Smart Classification</h3>
+            <p style="color: #1a1a1a; margin: 0; font-size: 14px; line-height: 1.6;">Automatically categorize posts as Authentic, Suspicious, or Fake News with confidence scores</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%); padding: 20px; border-radius: 12px; border-left: 4px solid #16a34a; margin-bottom: 16px;">
+            <h3 style="color: #16a34a; margin: 0 0 8px 0; font-size: 18px;">💬 Sentiment Analysis</h3>
+            <p style="color: #1a1a1a; margin: 0; font-size: 14px; line-height: 1.6;">Understand emotional tone, intent, and sentiment patterns in social media conversations</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%); padding: 20px; border-radius: 12px; border-left: 4px solid #16a34a; margin-bottom: 16px;">
+            <h3 style="color: #16a34a; margin: 0 0 8px 0; font-size: 18px;">🔐 Enterprise Security</h3>
+            <p style="color: #1a1a1a; margin: 0; font-size: 14px; line-height: 1.6;">Enterprise-grade security with privacy-first architecture and encrypted data processing</p>
+        </div>
+        """, unsafe_allow_html=True)
     
     st.markdown("---")
-    st.markdown("""<div class="success-box"><strong>Version 2.0</strong> - Production Ready | Advanced NLP Engine | Real-time Processing</div>""", unsafe_allow_html=True)
     
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.metric("Analyses", len(st.session_state.predictions))
-    with col2:
-        st.metric("Accuracy", "94.2%")
-    with col3:
-        st.metric("Uptime", "99.9%")
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 24px; border-radius: 12px; border: 1px solid #16a34a;">
+        <h3 style="color: #16a34a; margin: 0 0 12px 0; font-size: 18px; font-weight: 700;">Platform Version 2.0</h3>
+        <p style="color: #ffffff; margin: 0; font-size: 14px; line-height: 1.8;">
+            <span style="color: #16a34a; font-weight: 600;">✅ Production Ready</span> | 
+            <span style="color: #0066cc; font-weight: 600;">Advanced NLP Engine</span> | 
+            <span style="color: #16a34a; font-weight: 600;">Real-time Processing</span> | 
+            <span style="color: #0066cc; font-weight: 600;">99.9% Uptime</span>
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("<h2 style='color: #1a1a1a; margin-top: 32px; margin-bottom: 20px;'>Platform Statistics</h2>", unsafe_allow_html=True)
+    
+    stat1, stat2, stat3, stat4 = st.columns(4, gap="medium")
+    
+    with stat1:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%); padding: 20px; border-radius: 12px; text-align: center;">
+            <h3 style="color: #16a34a; margin: 0 0 8px 0; font-size: 28px; font-weight: 700;">{}</h3>
+            <p style="color: #1a1a1a; margin: 0; font-size: 13px; font-weight: 600;">Total Analyses</p>
+        </div>
+        """.format(len(st.session_state.predictions)), unsafe_allow_html=True)
+    
+    with stat2:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 20px; border-radius: 12px; text-align: center;">
+            <h3 style="color: #0066cc; margin: 0 0 8px 0; font-size: 28px; font-weight: 700;">94.2%</h3>
+            <p style="color: #1a1a1a; margin: 0; font-size: 13px; font-weight: 600;">Model Accuracy</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with stat3:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #fff8e1 0%, #ffe082 100%); padding: 20px; border-radius: 12px; text-align: center;">
+            <h3 style="color: #f59e0b; margin: 0 0 8px 0; font-size: 28px; font-weight: 700;">2.4s</h3>
+            <p style="color: #1a1a1a; margin: 0; font-size: 13px; font-weight: 600;">Avg Response Time</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with stat4:
+        st.markdown("""
+        <div style="background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%); padding: 20px; border-radius: 12px; text-align: center;">
+            <h3 style="color: #16a34a; margin: 0 0 8px 0; font-size: 28px; font-weight: 700;">99.9%</h3>
+            <p style="color: #1a1a1a; margin: 0; font-size: 13px; font-weight: 600;">Uptime SLA</p>
+        </div>
+        """, unsafe_allow_html=True)
