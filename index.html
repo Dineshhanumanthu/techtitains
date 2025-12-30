@@ -4,178 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechTitains - Social Media Intelligence Platform</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
     <style>
         * { font-family: 'Inter', sans-serif; }
-        body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
-        .gradient-text { background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .card-hover { transition: all 0.3s ease; }
+        body { background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%); min-height: 100vh; }
+        .gradient-text { background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-hover { transition: all 0.3s ease; cursor: pointer; }
         .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
         .btn-primary { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); transition: all 0.3s ease; }
         .btn-primary:hover { box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4); transform: translateY(-2px); }
-        .stat-card { background: white; border-left: 4px solid #2563eb; padding: 24px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .feature-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #2563eb; }
+        .navbar { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
     </style>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="module">
-        import React from 'https://esm.sh/react@18';
-        import ReactDOM from 'https://esm.sh/react-dom@18';
-        
-        const App = () => {
-            const [currentPage, setCurrentPage] = React.useState('home');
-            const [predictions, setPredictions] = React.useState([]);
-            const [inputText, setInputText] = React.useState('');
-            
-            const handleAnalyze = () => {
-                if (inputText.trim()) {
-                    const classes = ['Authentic', 'Suspicious', 'Fake News'];
-                    const prediction = classes[Math.floor(Math.random() * 3)];
-                    const confidence = (Math.random() * 0.34 + 0.65).toFixed(2);
-                    setPredictions([{ text: inputText, prediction, confidence, time: new Date().toLocaleTimeString() }, ...predictions]);
-                    setInputText('');
-                }
-            };
-            
-            return (
-                <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-                    {/* Header */}
-                    <nav className="bg-white shadow-md">
-                        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                            <div className="flex items-center gap-2">
-                                <span className="text-2xl">🚀</span>
-                                <h1 className="gradient-text text-2xl font-bold">TechTitains</h1>
-                            </div>
-                            <div className="flex gap-6">
-                                <button onClick={() => setCurrentPage('home')} className={`px-4 py-2 rounded-lg font-semibold transition ${ currentPage === 'home' ? 'bg-blue-100 text-blue-600' : 'text-gray-600 hover:bg-gray-100'}`}>Dashboard</button>
-                                <button onClick={() => setCurrentPage('analyze')} className={`px-4 py-2 rounded-lg font-semibold transition ${currentPage === 'analyze' ? 'bg-blue-100 text-blue-600' : 'text-gray-600 hover:bg-gray-100'}`}>Analyze</button>
-                                <button onClick={() => setCurrentPage('insights')} className={`px-4 py-2 rounded-lg font-semibold transition ${currentPage === 'insights' ? 'bg-blue-100 text-blue-600' : 'text-gray-600 hover:bg-gray-100'}`}>Insights</button>
-                            </div>
-                        </div>
-                    </nav>
-                    
-                    {/* Main Content */}
-                    <main className="max-w-7xl mx-auto px-6 py-12">
-                        {currentPage === 'home' && (
-                            <div>
-                                <h2 className="text-4xl font-bold text-gray-900 mb-4">Social Media Intelligence Platform</h2>
-                                <p className="text-lg text-gray-600 mb-12">Advanced NLP-powered platform for fake news detection, content classification, and sentiment analysis</p>
-                                
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                                    <div className="stat-card card-hover">
-                                        <div className="flex items-center gap-4">
-                                            <div className="feature-icon">📊</div>
-                                            <div>
-                                                <p className="text-gray-500 text-sm">Total Analyses</p>
-                                                <p className="text-3xl font-bold text-gray-900">{predictions.length}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="stat-card card-hover" style={{borderLeftColor: '#dc2626'}}>
-                                        <div className="flex items-center gap-4">
-                                            <div className="feature-icon" style={{background: '#fee2e2', color: '#dc2626'}}>⚠️</div>
-                                            <div>
-                                                <p className="text-gray-500 text-sm">Threats Detected</p>
-                                                <p className="text-3xl font-bold text-gray-900">{predictions.filter(p => p.prediction === 'Fake News').length}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="stat-card card-hover" style={{borderLeftColor: '#16a34a'}}>
-                                        <div className="flex items-center gap-4">
-                                            <div className="feature-icon" style={{background: '#dcfce7', color: '#16a34a'}}>✅</div>
-                                            <div>
-                                                <p className="text-gray-500 text-sm">System Status</p>
-                                                <p className="text-3xl font-bold text-gray-900">Active</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Features</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    {[
-                                        { icon: '🎯', title: 'Real-time Detection', desc: 'Instantly detect fake news and misinformation' },
-                                        { icon: '💬', title: 'Content Analysis', desc: 'Comprehensive analysis of social media posts' },
-                                        { icon: '📈', title: 'Analytics Dashboard', desc: 'Visual insights and trend analysis' },
-                                        { icon: '🔐', title: 'Secure Processing', desc: 'Privacy-first data processing system' }
-                                    ].map((feat, idx) => (
-                                        <div key={idx} className="bg-white p-6 rounded-lg shadow-sm card-hover">
-                                            <p className="text-4xl mb-4">{feat.icon}</p>
-                                            <h4 className="text-lg font-bold text-gray-900 mb-2">{feat.title}</h4>
-                                            <p className="text-gray-600">{feat.desc}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                        
-                        {currentPage === 'analyze' && (
-                            <div>
-                                <h2 className="text-3xl font-bold text-gray-900 mb-8">Content Analysis Engine</h2>
-                                <div className="bg-white rounded-lg shadow-lg p-8">
-                                    <label className="block text-gray-700 font-semibold mb-4">Enter text to analyze:</label>
-                                    <textarea value={inputText} onChange={(e) => setInputText(e.target.value)} placeholder="Paste your text here..." className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none mb-6" rows="6"></textarea>
-                                    <button onClick={handleAnalyze} className="btn-primary text-white px-8 py-3 rounded-lg font-semibold w-full">⚡ Analyze Now</button>
-                                </div>
-                            </div>
-                        )}
-                        
-                        {currentPage === 'insights' && (
-                            <div>
-                                <h2 className="text-3xl font-bold text-gray-900 mb-8">Analysis History</h2>
-                                {predictions.length === 0 ? (
-                                    <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded">
-                                        <p className="text-blue-700">No analyses yet. Start with the Analyze tab!</p>
-                                    </div>
-                                ) : (
-                                    <div className="space-y-4">
-                                        {predictions.map((pred, idx) => (
-                                            <div key={idx} className="bg-white p-6 rounded-lg shadow-md card-hover">
-                                                <div className="flex justify-between items-start mb-4">
-                                                    <div>
-                                                        <p className="text-sm text-gray-500">Time: {pred.time}</p>
-                                                        <p className="font-semibold text-gray-900 mt-2">{pred.text.substring(0, 100)}...</p>
-                                                    </div>
-                                                    <span className={`px-4 py-2 rounded-lg font-semibold ${
-                                                        pred.prediction === 'Authentic' ? 'bg-green-100 text-green-700' :
-                                                        pred.prediction === 'Suspicious' ? 'bg-yellow-100 text-yellow-700' :
-                                                        'bg-red-100 text-red-700'
-                                                    }`}>{pred.prediction}</span>
-                                                </div>
-                                                <div className="flex justify-between items-center">
-                                                    <div className="flex gap-8">
-                                                        <div>
-                                                            <p className="text-gray-500 text-sm">Confidence</p>
-                                                            <p className="text-lg font-bold text-gray-900">{(pred.confidence * 100).toFixed(1)}%</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="w-full bg-gray-200 rounded-full h-2 ml-8">
-                                                        <div style={{width: `${pred.confidence * 100}%`}} className="bg-blue-500 h-2 rounded-full"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        )}
-                    </main>
-                    
-                    {/* Footer */}
-                    <footer className="bg-gray-900 text-gray-300 py-12 mt-20">
-                        <div className="max-w-7xl mx-auto px-6 text-center">
-                            <p className="mb-2">© 2025 TechTitains. All rights reserved.</p>
-                            <p className="text-sm text-gray-500">Advanced Social Media Intelligence Platform</p>
-                        </div>
-                    </footer>
-                </div>
-            );
-        };
-        
-        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    <div id="app"></div>
+    <script>
+        const app = { currentPage: 'home', predictions: [], inputText: '', init() { this.render(); this.attachListeners(); }, attachListeners() { document.querySelectorAll('[data-page]').forEach(btn => { btn.addEventListener('click', (e) => { this.currentPage = e.target.dataset.page; this.render(); }); }); const textarea = document.getElementById('inputText'); if (textarea) { textarea.addEventListener('input', (e) => { this.inputText = e.target.value; }); } const analyzeBtn = document.getElementById('analyzeBtn'); if (analyzeBtn) { analyzeBtn.addEventListener('click', () => this.analyze()); } }, analyze() { if (this.inputText.trim()) { const classes = ['Authentic', 'Suspicious', 'Fake News']; const prediction = classes[Math.floor(Math.random() * 3)]; const confidence = (Math.random() * 0.34 + 0.65).toFixed(2); this.predictions.unshift({ text: this.inputText, prediction: prediction, confidence: parseFloat(confidence), time: new Date().toLocaleTimeString() }); this.inputText = ''; this.render(); } }, render() { const header = `<nav class="navbar sticky top-0 z-50"><div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"><div class="flex items-center gap-3"><span class="text-3xl">🚀</span><h1 class="gradient-text text-2xl font-bold">TechTitains</h1></div><div class="flex gap-2"><button data-page="home" class="px-6 py-2 rounded-lg font-semibold transition ${this.currentPage === 'home' ? 'bg-blue-100 text-blue-600' : 'text-gray-600 hover:bg-gray-100'}">Dashboard</button><button data-page="analyze" class="px-6 py-2 rounded-lg font-semibold transition ${this.currentPage === 'analyze' ? 'bg-blue-100 text-blue-600' : 'text-gray-600 hover:bg-gray-100'}">Analyze</button><button data-page="insights" class="px-6 py-2 rounded-lg font-semibold transition ${this.currentPage === 'insights' ? 'bg-blue-100 text-blue-600' : 'text-gray-600 hover:bg-gray-100'}">Insights</button></div></div></nav>`; let content = header; if (this.currentPage === 'home') { content += `<main class="max-w-7xl mx-auto px-6 py-12"><h2 class="text-5xl font-bold text-gray-900 mb-6">Social Media Intelligence</h2><p class="text-xl text-gray-600 mb-12 max-w-2xl">Advanced NLP-powered platform for fake news detection</p><div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"><div class="bg-white rounded-lg shadow-lg p-6 card-hover"><div class="text-4xl mb-3">📊</div><p class="text-gray-600 text-sm mb-2">Total Analyses</p><p class="text-4xl font-bold text-gray-900">${this.predictions.length}</p></div><div class="bg-white rounded-lg shadow-lg p-6 card-hover" style="border-top: 3px solid #dc2626;"><div class="text-4xl mb-3">⚠️</div><p class="text-gray-600 text-sm mb-2">Threats Detected</p><p class="text-4xl font-bold text-red-600">${this.predictions.filter(p => p.prediction === 'Fake News').length}</p></div><div class="bg-white rounded-lg shadow-lg p-6 card-hover" style="border-top: 3px solid #16a34a;"><div class="text-4xl mb-3">✅</div><p class="text-gray-600 text-sm mb-2">System Status</p><p class="text-3xl font-bold text-green-600">Active</p></div></div></main>`; } else if (this.currentPage === 'analyze') { content += `<main class="max-w-4xl mx-auto px-6 py-12"><h2 class="text-4xl font-bold text-gray-900 mb-8">Content Analysis Engine</h2><div class="bg-white rounded-2xl shadow-xl p-8"><label class="block text-gray-800 font-bold text-lg mb-4">Paste text to analyze:</label><textarea id="inputText" placeholder="Enter your text..." class="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none mb-6 resize-none" rows="8"></textarea><button id="analyzeBtn" class="btn-primary text-white px-8 py-4 rounded-lg font-bold text-lg w-full">⚡ Analyze Now</button></div></main>`; } else if (this.currentPage === 'insights') { if (this.predictions.length === 0) { content += `<main class="max-w-6xl mx-auto px-6 py-12"><h2 class="text-4xl font-bold text-gray-900 mb-8">Analysis History</h2><div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg"><p class="text-blue-700 text-lg">No analyses yet. Use the Analyze tab!</p></div></main>`; } else { content += `<main class="max-w-6xl mx-auto px-6 py-12"><h2 class="text-4xl font-bold text-gray-900 mb-8">Analysis History</h2><div class="space-y-4">`; this.predictions.forEach(pred => { const badge = pred.prediction === 'Authentic' ? 'bg-green-100 text-green-700' : pred.prediction === 'Suspicious' ? 'bg-yellow-100 text-yellow-700' : 'bg-red-100 text-red-700'; content += `<div class="bg-white rounded-lg shadow-md p-6 card-hover"><div class="flex justify-between items-start mb-4"><div class="flex-1"><p class="text-sm text-gray-500 mb-2">⏰ ${pred.time}</p><p class="text-gray-800 font-semibold">${pred.text.substring(0, 120)}...</p></div><span class="${badge} px-4 py-2 rounded-lg font-semibold ml-4">${pred.prediction}</span></div><div class="mt-4"><div class="flex justify-between items-center mb-2"><span class="text-gray-700 font-semibold">Confidence</span><span class="text-lg font-bold text-blue-600">${(pred.confidence * 100).toFixed(1)}%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div style="width: ${pred.confidence * 100}%" class="bg-blue-500 h-2 rounded-full"></div></div></div></div>`; }); content += `</div></main>`; } } const footer = `<footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-gray-300 py-12 mt-20"><div class="max-w-7xl mx-auto px-6 text-center"><p class="mb-2 font-semibold">© 2025 TechTitains. All rights reserved.</p></div></footer>`; document.getElementById('app').innerHTML = content + footer; this.attachListeners(); } }; document.addEventListener('DOMContentLoaded', () => app.init());
     </script>
 </body>
 </html>
