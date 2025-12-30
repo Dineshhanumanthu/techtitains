@@ -9,31 +9,32 @@ st.set_page_config(page_title="TECH TITANS", page_icon="🚀", layout="wide", in
 st.markdown("""
 <style>
 * { font-family: 'Inter', sans-serif; }
-body { background-color: #f8f9fa; color: #1a1a1a; }
-.stApp { background-color: #ffffff; }
-.stTabs [data-baseweb="tab-list"] { background-color: #ffffff; border-bottom: 2px solid #e0e0e0; }
-.stTabs [data-baseweb="tab"] { color: #555555; font-weight: 500; padding: 12px 24px; border-radius: 8px 8px 0 0; }
-.stTabs [data-baseweb="tab"][aria-selected="true"] { color: #0066cc; border-bottom: 3px solid #0066cc; background-color: #f0f7ff; }
-.stTabs [data-baseweb="tab"]:hover { color: #0066cc; background-color: #f0f7ff; }
-.stMetric { background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); color: #000000; }
-.stMetric-label { color: #000000 !important; font-size: 14px; font-weight: 600; }
-.stMetric-value { color: #000000 !important; font-size: 32px; font-weight: 700; }
-.stMetric-delta { color: #16a34a !important; font-weight: 600; }
-::selection { background-color: transparent; color: #000000; }
-*::selection { background-color: transparent; color: #000000; }
-button[kind="primary"] { background-color: #0066cc !important; color: white !important; border-radius: 8px !important; font-weight: 600 !important; padding: 12px 24px !important; transition: all 0.3s ease; }
-button[kind="primary"]:hover { background-color: #0052a3 !important; box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3) !important; }
-.stTextArea > div > textarea { border: 2px solid #e0e0e0 !important; border-radius: 8px !important; color: #1a1a1a !important; padding: 12px; }
-.stTextArea > div > textarea:focus { border: 2px solid #0066cc !important; box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1) !important; }
-h1 { color: #f97316 !important; font-weight: 700 !important; }
-h2 { color: #1e40af !important; font-weight: 700 !important; margin-top: 24px !important; }
-h3 { color: #0066cc !important; font-weight: 600 !important; }
-.info-box { background-color: #1a1a1a; border-left: 4px solid #ffffff; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
-.success-box { background-color: #1a1a1a; border-left: 4px solid #22c55e; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
-.warning-box { background-color: #1a1a1a; border-left: 4px solid #eab308; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
-.danger-box { background-color: #1a1a1a; border-left: 4px solid #ef4444; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
-.card { background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.3s ease; }
-.card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+body { background-color: #000000; color: #ffffff; }
+.stApp { background-color: #000000; }
+.stTabs [data-baseweb="tab-list"] { background-color: #000000; border-bottom: 2px solid #333333; }
+.stTabs [data-baseweb="tab"] { color: #cccccc; font-weight: 500; padding: 12px 24px; border-radius: 8px 8px 0 0; }
+.stTabs [data-baseweb="tab"][aria-selected="true"] { color: #00d4ff; border-bottom: 3px solid #00d4ff; background-color: #1a1a1a; }
+.stTabs [data-baseweb="tab"]:hover { color: #00d4ff; background-color: #1a1a1a; }
+.stMetric { background-color: #0a0a0a; border: 1px solid #333333; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.5); color: #ffffff; }
+.stMetric-label { color: #ffffff !important; font-size: 14px; font-weight: 600; }
+.stMetric-value { color: #00d4ff !important; font-size: 32px; font-weight: 700; }
+.stMetric-delta { color: #00ff00 !important; font-weight: 600; }
+::selection { background-color: transparent; color: #ffffff; }
+*::selection { background-color: transparent; color: #ffffff; }
+button[kind="primary"] { background-color: #00d4ff !important; color: #000000 !important; border-radius: 8px !important; font-weight: 600 !important; padding: 12px 24px !important; transition: all 0.3s ease; }
+button[kind="primary"]:hover { background-color: #00a8cc !important; box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3) !important; }
+.stTextArea > div > textarea { border: 2px solid #333333 !important; border-radius: 8px !important; color: #ffffff !important; padding: 12px; background-color: #0a0a0a !important; }
+.stTextArea > div > textarea:focus { border: 2px solid #00d4ff !important; box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important; }
+h1 { color: #ff9500 !important; font-weight: 700 !important; }
+h2 { color: #00d4ff !important; font-weight: 700 !important; margin-top: 24px !important; }
+h3 { color: #00ff88 !important; font-weight: 600 !important; }
+p { color: #e0e0e0 !important; }
+.info-box { background-color: #0a0a0a; border-left: 4px solid #00d4ff; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
+.success-box { background-color: #0a0a0a; border-left: 4px solid #00ff88; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
+.warning-box { background-color: #0a0a0a; border-left: 4px solid #ffaa00; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
+.danger-box { background-color: #0a0a0a; border-left: 4px solid #ff3333; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
+.card { background-color: #0a0a0a; border: 1px solid #333333; border-radius: 12px; padding: 20px; margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.5); transition: all 0.3s ease; }
+.card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.7); transform: translateY(-2px); }
 </style>
 """, unsafe_allow_html=True)
 
@@ -112,8 +113,8 @@ with tab3:
     else:
         st.markdown(f"#### Total Analyses: {len(st.session_state.predictions)}")
         for idx, (time, pred, conf, text) in enumerate(reversed(st.session_state.predictions)):
-            pred_color = "#22c55e" if "Authentic" in pred else "#eab308" if "Suspicious" in pred else "#ef4444"
-            pred_bg = "#1a1a1a" if "Authentic" in pred else "#1a1a1a" if "Suspicious" in pred else "#1a1a1a"
+            pred_color = "#00ff88" if "Authentic" in pred else "#ffaa00" if "Suspicious" in pred else "#ff3333"
+            pred_bg = "#0a0a0a" if "Authentic" in pred else "#0a0a0a" if "Suspicious" in pred else "#0a0a0a"
             st.markdown(f"""
 ⏰ {time}
 
