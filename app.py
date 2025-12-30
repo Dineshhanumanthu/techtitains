@@ -47,11 +47,12 @@ st.markdown("""
 Intelligent Social Media Analysis Platform
 """, unsafe_allow_html=True)
 
-tab1, tab2, tab3, tab4 = st.tabs(["📊 Dashboard", "📝 Analysis", "📈 Insights", "ℹ️ About"])
+tab1, tab2, tab3 = st.tabs(["📊 Dashboard", "📝 Analysis", "ℹ️ About"])
 
 with tab1:
     st.markdown("### Platform Dashboard")
     st.markdown("Real-time analytics and system metrics for content intelligence")
+    
     col1, col2, col3 = st.columns(3, gap="large")
     with col1:
         st.metric("📊 Total Analyses", len(st.session_state.predictions), delta="Real-time")
@@ -60,32 +61,37 @@ with tab1:
         st.metric("⚠️ Threats Detected", fake_count, delta="Critical")
     with col3:
         st.metric("✅ System Status", "Operational", delta="100% Live")
+    
     st.markdown("---")
     st.markdown("### Key Features")
     feat_col1, feat_col2 = st.columns(2, gap="large")
+    
     with feat_col1:
         st.markdown("""
-### 🎯 Real-time Detection
-Instantly detect fake news and misinformation using advanced ML algorithms
-""", unsafe_allow_html=True)
+        ### 🎯 Real-time Detection
+        Instantly detect fake news and misinformation using advanced ML algorithms
+        """, unsafe_allow_html=True)
         st.markdown("""
-### 📈 Analytics Dashboard
-Visual insights and trend analysis for data-driven decisions
-""", unsafe_allow_html=True)
+        ### 📈 Analytics Dashboard
+        Visual insights and trend analysis for data-driven decisions
+        """, unsafe_allow_html=True)
+    
     with feat_col2:
         st.markdown("""
-### 💬 Content Analysis
-Comprehensive sentiment and authenticity analysis of social posts
-""", unsafe_allow_html=True)
+        ### 💬 Content Analysis
+        Comprehensive sentiment and authenticity analysis of social posts
+        """, unsafe_allow_html=True)
         st.markdown("""
-### 🔐 Secure Processing
-Enterprise-grade security with privacy-first data handling
-""", unsafe_allow_html=True)
+        ### 🔐 Secure Processing
+        Enterprise-grade security with privacy-first data handling
+        """, unsafe_allow_html=True)
 
 with tab2:
     st.markdown("### Content Analysis Engine")
     st.markdown("Paste any social media content to analyze authenticity and sentiment")
+    
     text = st.text_area("Enter post, article, or comment...", height=220, label_visibility="collapsed")
+    
     if st.button("⚡ Analyze Now", use_container_width=True):
         if text.strip():
             classes = ["✅ Authentic", "⚠️ Suspicious", "❌ Fake News"]
@@ -93,6 +99,7 @@ with tab2:
             conf = round(random.uniform(0.72, 0.99), 2)
             st.session_state.predictions.append((datetime.now().strftime("%Y-%m-%d %H:%M:%S"), prediction, conf, text))
             st.success("⚡ Analysis Complete!")
+    
     if st.session_state.predictions:
         st.markdown("---")
         st.markdown("### Recent Analysis Results")
@@ -105,83 +112,68 @@ with tab2:
             st.metric("Processed", "Just now")
 
 with tab3:
-    st.markdown("### Analysis History & Insights")
-    if not st.session_state.predictions:
-        st.markdown("""
-📋 No analyses yet. Use the Analysis tab to get started!
-""", unsafe_allow_html=True)
-    else:
-        st.markdown(f"#### Total Analyses: {len(st.session_state.predictions)}")
-        for idx, (time, pred, conf, text) in enumerate(reversed(st.session_state.predictions)):
-            pred_color = "#00ff88" if "Authentic" in pred else "#ffaa00" if "Suspicious" in pred else "#ff3333"
-            pred_bg = "#0a0a0a" if "Authentic" in pred else "#0a0a0a" if "Suspicious" in pred else "#0a0a0a"
-            st.markdown(f"""
-⏰ {time}
-
-{text[:120]}...
-
-<span style="background-color: {pred_bg}; color: {pred_color}; padding: 4px 12px; border-radius: 4px; font-weight: 600;">{pred}</span>
-
-Confidence Score   {conf*100:.1f}%
-
-""", unsafe_allow_html=True)
-
-with tab4:
     st.markdown("""
-## About TECH TITANS
-### Advanced Content Intelligence Platform
-""", unsafe_allow_html=True)
+    ## About TECH TITANS
+    ### Advanced Content Intelligence Platform
+    """, unsafe_allow_html=True)
+    
     st.markdown("""
-Tech Titans is a state-of-the-art **Social Media Intelligence Platform** powered by advanced **Natural Language Processing** and machine learning technology. Our platform empowers users to detect misinformation, classify content, and gain actionable insights from social media data in real-time.
-""", unsafe_allow_html=True)
+    Tech Titans is a state-of-the-art **Social Media Intelligence Platform** powered by advanced **Natural Language Processing** and machine learning technology. Our platform empowers users to detect misinformation, classify content, and gain actionable insights from social media data in real-time.
+    """, unsafe_allow_html=True)
+    
     st.markdown("""
-### Core Capabilities
-""", unsafe_allow_html=True)
+    ### Core Capabilities
+    """, unsafe_allow_html=True)
+    
     col1, col2 = st.columns(2, gap="large")
     with col1:
         st.markdown("""
-### 🎯 Real-time Detection
-Instantly identify fake news, misinformation, and false claims using advanced ML algorithms
-""", unsafe_allow_html=True)
+        ### 🎯 Real-time Detection
+        Instantly identify fake news, misinformation, and false claims using advanced ML algorithms
+        """, unsafe_allow_html=True)
         st.markdown("""
-### 📊 Smart Classification
-Automatically categorize posts as Authentic, Suspicious, or Fake News with confidence scores
-""", unsafe_allow_html=True)
+        ### 📊 Smart Classification
+        Automatically categorize posts as Authentic, Suspicious, or Fake News with confidence scores
+        """, unsafe_allow_html=True)
+    
     with col2:
         st.markdown("""
-### 💬 Sentiment Analysis
-Understand emotional tone, intent, and sentiment patterns in social media conversations
-""", unsafe_allow_html=True)
+        ### 💬 Sentiment Analysis
+        Understand emotional tone, intent, and sentiment patterns in social media conversations
+        """, unsafe_allow_html=True)
         st.markdown("""
-### 🔐 Enterprise Security
-Enterprise-grade security with privacy-first architecture and encrypted data processing
-""", unsafe_allow_html=True)
+        ### 🔐 Enterprise Security
+        Enterprise-grade security with privacy-first architecture and encrypted data processing
+        """, unsafe_allow_html=True)
+    
     st.markdown("---")
     st.markdown("""
-### Platform Version 2.0
-✅ Production Ready | Advanced NLP Engine | Real-time Processing | 99.9% Uptime
-""", unsafe_allow_html=True)
+    ### Platform Version 2.0
+    ✅ Production Ready | Advanced NLP Engine | Real-time Processing | 99.9% Uptime
+    """, unsafe_allow_html=True)
+    
     st.markdown("""
-### Platform Statistics
-""", unsafe_allow_html=True)
+    ### Platform Statistics
+    """, unsafe_allow_html=True)
+    
     stat1, stat2, stat3, stat4 = st.columns(4, gap="medium")
     with stat1:
         st.markdown(f"""
-### {len(st.session_state.predictions)}
-Total Analyses
-""", unsafe_allow_html=True)
+        ### {len(st.session_state.predictions)}
+        Total Analyses
+        """, unsafe_allow_html=True)
     with stat2:
         st.markdown("""
-### 94.2%
-Model Accuracy
-""", unsafe_allow_html=True)
+        ### 94.2%
+        Model Accuracy
+        """, unsafe_allow_html=True)
     with stat3:
         st.markdown("""
-### 2.4s
-Avg Response Time
-""", unsafe_allow_html=True)
+        ### 2.4s
+        Avg Response Time
+        """, unsafe_allow_html=True)
     with stat4:
         st.markdown("""
-### 99.9%
-Uptime SLA
-""", unsafe_allow_html=True)
+        ### 99.9%
+        Uptime SLA
+        """, unsafe_allow_html=True)
