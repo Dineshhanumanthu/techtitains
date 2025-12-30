@@ -15,10 +15,12 @@ body { background-color: #f8f9fa; color: #1a1a1a; }
 .stTabs [data-baseweb="tab"] { color: #555555; font-weight: 500; padding: 12px 24px; border-radius: 8px 8px 0 0; }
 .stTabs [data-baseweb="tab"][aria-selected="true"] { color: #0066cc; border-bottom: 3px solid #0066cc; background-color: #f0f7ff; }
 .stTabs [data-baseweb="tab"]:hover { color: #0066cc; background-color: #f0f7ff; }
-.stMetric { background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.stMetric-label { color: #ff6b35 !important; font-size: 14px; font-weight: 600; }
-.stMetric-value { color: #004e89 !important; font-size: 32px; font-weight: 700; }
+.stMetric { background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); color: #000000; }
+.stMetric-label { color: #000000 !important; font-size: 14px; font-weight: 600; }
+.stMetric-value { color: #000000 !important; font-size: 32px; font-weight: 700; }
 .stMetric-delta { color: #16a34a !important; font-weight: 600; }
+::selection { background-color: transparent; color: #000000; }
+*::selection { background-color: transparent; color: #000000; }
 button[kind="primary"] { background-color: #0066cc !important; color: white !important; border-radius: 8px !important; font-weight: 600 !important; padding: 12px 24px !important; transition: all 0.3s ease; }
 button[kind="primary"]:hover { background-color: #0052a3 !important; box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3) !important; }
 .stTextArea > div > textarea { border: 2px solid #e0e0e0 !important; border-radius: 8px !important; color: #1a1a1a !important; padding: 12px; }
