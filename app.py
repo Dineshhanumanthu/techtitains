@@ -28,10 +28,10 @@ button[kind="primary"]:hover { background-color: #0052a3 !important; box-shadow:
 h1 { color: #f97316 !important; font-weight: 700 !important; }
 h2 { color: #1e40af !important; font-weight: 700 !important; margin-top: 24px !important; }
 h3 { color: #0066cc !important; font-weight: 600 !important; }
-.info-box { background-color: #e3f2fd; border-left: 4px solid #0066cc; padding: 16px; border-radius: 8px; color: #0052a3; font-weight: 500; margin: 16px 0; }
-.success-box { background-color: #f1f8f4; border-left: 4px solid #16a34a; padding: 16px; border-radius: 8px; color: #166534; font-weight: 500; margin: 16px 0; }
-.warning-box { background-color: #fff8e1; border-left: 4px solid #f59e0b; padding: 16px; border-radius: 8px; color: #b45309; font-weight: 500; margin: 16px 0; }
-.danger-box { background-color: #fef2f2; border-left: 4px solid #dc2626; padding: 16px; border-radius: 8px; color: #991b1b; font-weight: 500; margin: 16px 0; }
+.info-box { background-color: #1a1a1a; border-left: 4px solid #ffffff; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
+.success-box { background-color: #1a1a1a; border-left: 4px solid #22c55e; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
+.warning-box { background-color: #1a1a1a; border-left: 4px solid #eab308; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
+.danger-box { background-color: #1a1a1a; border-left: 4px solid #ef4444; padding: 16px; border-radius: 8px; color: #ffffff; font-weight: 500; margin: 16px 0; }
 .card { background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; margin: 16px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.3s ease; }
 .card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
 </style>
@@ -112,8 +112,8 @@ with tab3:
     else:
         st.markdown(f"#### Total Analyses: {len(st.session_state.predictions)}")
         for idx, (time, pred, conf, text) in enumerate(reversed(st.session_state.predictions)):
-            pred_color = "#16a34a" if "Authentic" in pred else "#f59e0b" if "Suspicious" in pred else "#dc2626"
-            pred_bg = "#f1f8f4" if "Authentic" in pred else "#fff8e1" if "Suspicious" in pred else "#fef2f2"
+            pred_color = "#22c55e" if "Authentic" in pred else "#eab308" if "Suspicious" in pred else "#ef4444"
+            pred_bg = "#1a1a1a" if "Authentic" in pred else "#1a1a1a" if "Suspicious" in pred else "#1a1a1a"
             st.markdown(f"""
 ⏰ {time}
 
